@@ -48,7 +48,7 @@ async def main():
             LOGGER.info(f"Migrating documents for index: {index_name}")
             try:
                 await index_data.migrate_documents(
-                    old_search_session, new_search_session, index_name, batch_size=1000
+                    old_search_session, new_search_session, index_name, batch_size=settings.batch_size
                 )
             except Exception as e:
                 LOGGER.error(

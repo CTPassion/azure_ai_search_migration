@@ -47,6 +47,9 @@ Create a `.env` file with your configuration (this will be loaded by Pydantic se
 API_VERSION=2024-07-01
 ALLOW_INDEX_DOWNTIME=true
 
+# Migration settings
+BATCH_SIZE=1000
+
 # Source search service
 OLD_SEARCH__SEARCH_SERVICE_NAME=your-source-search-service
 OLD_SEARCH__API_KEY=your-source-api-key
@@ -81,7 +84,7 @@ The migration process:
 
 ### Batch Sizes
 
-You can adjust batch sizes when migrating large indexes by modifying the `batch_size` parameter when calling `migrate_documents()`.
+You can adjust the batch size for document migration by setting the `BATCH_SIZE` environment variable in your `.env` file. The default is 1000 documents per batch. For very large documents or if you encounter memory issues, consider using a smaller batch size.
 
 ### Error Handling
 

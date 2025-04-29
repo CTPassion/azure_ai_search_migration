@@ -30,7 +30,8 @@ class Settings(BaseSettings):
     allow_index_downtime: bool = True
     old_search: SearchSettings
     new_search: SearchSettings
-
+    batch_size: int = 1000
+    
     @computed_field
     @property
     def list_params(self) -> dict[str, Any]:
